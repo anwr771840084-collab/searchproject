@@ -1,0 +1,484 @@
+/* ================================================
+   ملف التجاوب الشامل - Responsive CSS
+   يغطي: الهاتف / التابلت / الشاشات الكبيرة
+   ================================================ */
+
+/* --- متغيرات نقاط التوقف ---
+   xs: < 576px  (هواتف صغيرة)
+   sm: 576px+   (هواتف كبيرة)
+   md: 768px+   (تابلت)
+   lg: 992px+   (لابتوب)
+   xl: 1200px+  (شاشات كبيرة)
+*/
+
+/* ================================================
+   1. إعدادات عامة لكل الصفحات
+   ================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ================================================
+   2. صفحات الموقع العام (layouts/app.blade.php)
+      الرئيسية / نبذة عنا / تواصل معنا / المساعدة
+   ================================================ */
+
+/* --- النافبار --- */
+#mainNav .container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.2rem !important;
+        padding: 6px 10px !important;
+    }
+
+    .navbar-brand i {
+        font-size: 1rem !important;
+    }
+
+    .navbar-toggler {
+        padding: 6px 10px !important;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-top: 10px !important;
+    }
+
+    .nav-link {
+        padding: 12px 15px !important;
+        justify-content: flex-start !important;
+        text-align: right !important;
+    }
+}
+
+/* --- هيدر الصفحات (masthead) --- */
+.masthead {
+    min-height: 300px;
+}
+
+@media (max-width: 575.98px) {
+    .masthead {
+        height: auto !important;
+        min-height: 220px !important;
+        padding: 60px 0 30px !important;
+    }
+
+    .site-heading h1,
+    .page-heading h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+    }
+
+    .site-heading .subheading,
+    .page-heading .subheading {
+        font-size: 0.95rem !important;
+        padding: 8px 15px !important;
+    }
+
+    .page-heading h1::before {
+        display: none;
+    }
+
+    .positive-notice,
+    .thank-you {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .masthead {
+        height: auto !important;
+        min-height: 260px !important;
+        padding: 80px 0 40px !important;
+    }
+
+    .site-heading h1,
+    .page-heading h1 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .masthead {
+        height: auto !important;
+        min-height: 300px !important;
+    }
+}
+
+/* --- محتوى الصفحة الرئيسية (index) --- */
+@media (max-width: 575.98px) {
+    .post-preview {
+        padding: 18px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .post-title {
+        font-size: 1.2rem !important;
+    }
+
+    .post-subtitle {
+        font-size: 0.9rem !important;
+    }
+
+    .post-preview img {
+        max-height: 200px !important;
+    }
+
+    .badge {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.6rem !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .post-preview {
+        padding: 22px !important;
+    }
+
+    .post-title {
+        font-size: 1.4rem !important;
+    }
+}
+
+/* --- نماذج التواصل والمساعدة --- */
+@media (max-width: 575.98px) {
+    #contactForm,
+    #helpForm {
+        padding: 15px !important;
+        border-radius: 12px !important;
+    }
+
+    .form-floating label {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 12px !important;
+        font-size: 1rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group-text {
+        width: 100%;
+        border-radius: 8px 8px 0 0 !important;
+        justify-content: center;
+    }
+
+    .input-group .form-control {
+        border-radius: 0 0 8px 8px !important;
+        width: 100%;
+    }
+
+    /* تحسين حقل إدخال الملفات بشكل خاص */
+    .input-group .form-control[type="file"] {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: wrap;
+        word-break: break-all;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #contactForm,
+    #helpForm {
+        padding: 20px !important;
+    }
+}
+
+/* --- الفوتر --- */
+footer {
+    padding: 20px 0;
+}
+
+@media (max-width: 575.98px) {
+    footer .list-inline-item {
+        margin: 5px;
+    }
+
+    footer .fa-stack {
+        font-size: 1rem;
+    }
+}
+
+/* ================================================
+   3. لوحة التحكم (admin - master.blade.php)
+   ================================================ */
+
+/* --- السايدبار --- */
+@media (max-width: 991.98px) {
+    #layoutSidenav_nav {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    #layoutSidenav_nav.toggled {
+        transform: translateX(0);
+    }
+
+    #layoutSidenav_content {
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sb-sidenav-menu .nav-link {
+        padding: 0.8rem 1rem !important;
+        font-size: 0.9rem;
+    }
+
+    .sb-sidenav-footer {
+        padding: 10px !important;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- جداول لوحة التحكم --- */
+@media (max-width: 767.98px) {
+    table {
+        font-size: 0.82rem;
+    }
+
+    td, th {
+        padding: 10px 8px !important;
+    }
+
+    /* تمكين التمرير الأفقي للجداول على الهاتف */
+    .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 575.98px) {
+    table {
+        font-size: 0.75rem;
+        border-radius: 8px !important;
+    }
+
+    td, th {
+        padding: 8px 6px !important;
+    }
+
+    td img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .btn-sm {
+        padding: 3px 8px !important;
+        font-size: 0.75rem !important;
+        border-radius: 12px !important;
+    }
+
+    .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+    }
+}
+
+/* --- الأشرطة والبطاقات في لوحة التحكم --- */
+@media (max-width: 575.98px) {
+    .container-fluid.px-4 {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+}
+
+/* ================================================
+   4. صفحات تسجيل الدخول والتسجيل
+   ================================================ */
+
+/* إصلاح التمرير عندما يكون body flex */
+@media (max-width: 575.98px) {
+    body {
+        align-items: flex-start !important;
+        padding: 20px 15px !important;
+    }
+
+    .login-container,
+    .auth-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        border-radius: 12px !important;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+    }
+
+    .login-form-section,
+    .auth-form-section {
+        width: 100% !important;
+        padding: 25px 20px !important;
+    }
+
+    .login-image-section,
+    .auth-image-section {
+        display: none !important;
+    }
+
+    .login-form-section h2,
+    .auth-form-section h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .login-container,
+    .auth-container {
+        max-width: 480px !important;
+        min-height: auto !important;
+    }
+
+    .login-image-section,
+    .auth-image-section {
+        display: none !important;
+    }
+
+    .login-form-section,
+    .auth-form-section {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .login-container,
+    .auth-container {
+        max-width: 700px;
+    }
+
+    .login-image-section,
+    .auth-image-section {
+        width: 40% !important;
+    }
+
+    .login-form-section,
+    .auth-form-section {
+        width: 60% !important;
+    }
+}
+
+/* ================================================
+   5. صفحات الخطأ (401, 404, 500)
+   ================================================ */
+@media (max-width: 575.98px) {
+    .error-page h1 {
+        font-size: 4rem !important;
+    }
+
+    .error-page p {
+        font-size: 1rem !important;
+    }
+}
+
+/* ================================================
+   6. تحسينات عامة للتجاوب
+   ================================================ */
+
+/* منع تجاوز الصور لحدود حاوياتها */
+.post-preview img,
+td img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* تحسين الأزرار على الشاشات اللمسية */
+@media (max-width: 767.98px) {
+    .btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* تحسين مساحة القسم على الشاشات الصغيرة */
+@media (max-width: 575.98px) {
+    section, main {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .my-5 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+}
+
+/* إصلاح النص العربي على الشاشات الصغيرة */
+@media (max-width: 575.98px) {
+    p, li, td, th, label {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: 1.1rem; }
+}
+
+/* ================================================
+   7. تحسينات خاصة للشاشات الكبيرة جداً
+   ================================================ */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .post-preview {
+        padding: 40px !important;
+    }
+
+    .navbar-brand {
+        font-size: 2rem !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 1.1rem;
+    }
+
+    .masthead {
+        min-height: 500px !important;
+    }
+
+    .site-heading h1 {
+        font-size: 5rem !important;
+    }
+}
